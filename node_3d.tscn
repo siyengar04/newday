@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b2ybnkovmudsd"]
+
+[ext_resource type="PackedScene" uid="uid://o80pc304nqxy" path="res://Untitled.glb" id="1_a202f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2si1m"]
+
+[sub_resource type="Sky" id="Sky_h3oik"]
+sky_material = SubResource("ProceduralSkyMaterial_2si1m")
+
+[sub_resource type="Environment" id="Environment_53jg8"]
+background_mode = 1
+background_color = Color(0.65167266, 0.7670325, 1, 1)
+background_energy_multiplier = 1.2
+sky = SubResource("Sky_h3oik")
+ambient_light_source = 3
+reflected_light_source = 2
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a202f"]
+points = PackedVector3Array(-6.9983854, -0.29, -3.7159698, -6.9983854, -0.29, 3.4259698, -6.9983854, 6.201136, -3.7159698, 6.7083855, -0.29, -3.7159698, -6.9983854, 6.201136, 3.4259698, 6.7083855, -0.29, 3.4259698, 6.7083855, 6.201136, -3.7159698, -6.708579, 6.201136, 3.4259698, 6.7083855, -0.00026252866, 3.4259698, 6.7083855, 6.201136, -3.4265451)
+
+[node name="Node3D" type="Node3D" unique_id=2050188313]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=188099060]
+transform = Transform3D(0.77145284, -0.14606044, 0.6192955, 0, 0.9732966, 0.22955137, -0.6362865, -0.17708807, 0.7508524, 7.390788, 4.5684013, 3.1400485)
+environment = SubResource("Environment_53jg8")
+projection = 1
+current = true
+size = 10.754966
+
+[node name="BaseRoom" parent="." unique_id=1427958053 instance=ExtResource("1_a202f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6776893, 0, -1.7713814)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseRoom" unique_id=2091227600]
+shape = SubResource("ConvexPolygonShape3D_a202f")
+
+[node name="Sprite3D" type="Sprite3D" parent="BaseRoom" unique_id=256940487]
+
+[node name="SubViewport" type="SubViewport" parent="BaseRoom/Sprite3D" unique_id=126045027]
+
+[node name="Button" type="Button" parent="BaseRoom/Sprite3D/SubViewport" unique_id=1283525487]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "test"
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1826940568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3691325, 3.2087517, -1.2594681)
+size = Vector3(16.56, 9.375, 10.565)
+interior = true
+enable_shadows = true
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=826434737]
+transform = Transform3D(0.8404682, 0.14756759, 0.52137995, 0, -0.96220255, 0.2723348, 0.5418609, -0.22888876, -0.8087007, 7.5011864, 5.0021987, -12.788764)
+
+[editable path="BaseRoom"]
