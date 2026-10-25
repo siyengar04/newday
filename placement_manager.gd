@@ -16,17 +16,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	# Rotate item on R or Mouse Wheel
-	if event.is_action_pressed("rotate_item") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed):
+	if event.is_action_pressed("item_place_rotate") or (event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed):
 		rotate_current_item(1)
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
 		rotate_current_item(-1)
 
 	# Place item on Left Click
-	if event.is_action_pressed("place_item"):
+	if event.is_action_pressed("item_place"):
 		try_place_current_item()
 
 	# Cancel item on Right Click
-	if event.is_action_pressed("cancel_placement"):
+	if event.is_action_pressed("item_place_cancel"):
 		cancel_placement()
 
 func _process(_delta: float) -> void:
@@ -70,7 +70,7 @@ func select_item_to_place(item_scene: PackedScene) -> void:
 	if current_item != null:
 		current_item.queue_free()
 
-	current_item = item_scene.instantiate()
+	current_item = item_scene.instantiate() as FurnitureItem
 	current_item.is_placed = false
 	furniture_container.add_child(current_item)
 	current_rotation_step = 0

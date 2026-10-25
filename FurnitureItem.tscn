@@ -2,17 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bkmu103fd41mw" path="res://furniture_item.gd" id="1_ctnji"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
 
-[node name="Node3D" type="Node3D" unique_id=966247284]
+[sub_resource type="BoxMesh" id="BoxMesh_h2yge"]
 
-[node name="FurnitureItem" type="Area3D" parent="." unique_id=1590064584]
+[node name="FurnitureItem" type="Area3D" unique_id=416144383]
 script = ExtResource("1_ctnji")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="FurnitureItem" unique_id=8308690]
-mesh = SubResource("BoxMesh_h2yge")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureItem" unique_id=1569620732]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1569620732]
 shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=8308690]
+mesh = SubResource("BoxMesh_h2yge")
