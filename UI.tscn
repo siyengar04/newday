@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://k506oxe5hmxl"]
 
 [ext_resource type="Script" uid="uid://c6ul73my0hvab" path="res://item_panel.gd" id="1_b3bc3"]
+[ext_resource type="PackedScene" uid="uid://dis7rsadag53t" path="res://ObjectScenes/Chair.tscn" id="2_g6l6n"]
+[ext_resource type="PackedScene" uid="uid://bt2c0t8wexuyj" path="res://ObjectScenes/Table.tscn" id="3_qui0h"]
 
 [node name="UI" type="CanvasLayer" unique_id=981345180]
 
-[node name="ItemPanel" type="PanelContainer" parent="." unique_id=1163485984]
+[node name="ItemPanel" type="PanelContainer" parent="." unique_id=1163485984 node_paths=PackedStringArray("chair_button", "table_button")]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -13,6 +15,10 @@ offset_top = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_b3bc3")
+chair_scene = ExtResource("2_g6l6n")
+table_scene = ExtResource("3_qui0h")
+chair_button = NodePath("GridContainer/ChairButton")
+table_button = NodePath("GridContainer/TableButton")
 
 [node name="GridContainer" type="GridContainer" parent="ItemPanel" unique_id=812403313]
 layout_mode = 2
