@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bttt5yafcklm0"]
+
+[ext_resource type="PackedScene" uid="uid://k506oxe5hmxl" path="res://UI.tscn" id="3_1gg6n"]
+[ext_resource type="PackedScene" uid="uid://d2icxs24o3br4" path="res://Objects/FishTank.glb" id="3_2wvic"]
+[ext_resource type="PackedScene" uid="uid://c6ct80s0w4d1i" path="res://Objects/Lobby-col.glb" id="3_tftiq"]
+
+[sub_resource type="Sky" id="Sky_ephlv"]
+
+[sub_resource type="Environment" id="Environment_8ldoj"]
+background_mode = 1
+background_color = Color(0.78141284, 0.8075985, 1, 1)
+sky = SubResource("Sky_ephlv")
+ssao_enabled = true
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ein8w"]
+
+[node name="Lobby" type="Node3D" unique_id=1011683876]
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=862155753]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=320446283]
+transform = Transform3D(0.94417596, -0.115330875, 0.30859447, -1.490116e-08, 0.9367199, 0.35007995, -0.32944158, -0.33053708, 0.8844284, 4.6707897, 6.132779, 10.608204)
+projection = 1
+size = 10.469
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2054035188]
+
+[node name="UI" parent="." unique_id=981345180 instance=ExtResource("3_1gg6n")]
+
+[node name="ItemPanel" parent="UI" index="0" unique_id=1163485984 node_paths=PackedStringArray("placement_manager")]
+placement_manager = NodePath("")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1286504528]
+environment = SubResource("Environment_8ldoj")
+camera_attributes = SubResource("CameraAttributesPhysical_ein8w")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=1234857982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.072998, 2.7728138, 3.133295)
+size = Vector3(15.854004, 9.320801, 10.265869)
+
+[node name="Lobby" parent="." unique_id=972568395 instance=ExtResource("3_2wvic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.939573, -0.013309002, 3.1035032)
+
+[node name="FishTank" parent="Lobby" index="0" unique_id=1949020475]
+transform = Transform3D(1, 0, 0, 0, 0.33264726, 0, 0, 0, 1, -6.2099924, 0.33264726, -2.69711)
+
+[node name="Lobby2" parent="Lobby" unique_id=1374111343 instance=ExtResource("3_tftiq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42612588, 0.013309002, -0.27876663)
+
+[editable path="UI"]
+[editable path="Lobby"]
+[editable path="Lobby/Lobby2"]

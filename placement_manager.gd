@@ -2,8 +2,10 @@ class_name PlacementManager
 extends Node3D
 
 @export var grid_size: float = 1.0
-@export var floor_collision_mask: int = 2  # Layer 2 = Floor
-@export var furniture_collision_mask: int = 1  # Layer 1 = Furniture
+#keep layer 2 for floor
+@export var floor_collision_mask: int = 2  
+#keep layer 1 for other furniture
+@export var furniture_collision_mask: int = 1  
 @export var furniture_container: Node3D
 
 var current_item: FurnitureItem = null
@@ -37,7 +39,7 @@ func _handle_placement_input(event: InputEvent) -> void:
 
 
 func _handle_select_input(event: InputEvent) -> void:
-	if event.is_action_pressed("item_place"):  # left click in select mode = select
+	if event.is_action_pressed("item_place"): 
 		var hit := raycast_furniture()
 		select_placed_item(hit)
 	elif event.is_action_pressed("item_place_cancel"):

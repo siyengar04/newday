@@ -32,7 +32,6 @@ func _ready() -> void:
 	if _cancel_btn:
 		_cancel_btn.pressed.connect(_on_cancel)
 	else:
-		# Cancel button is optional; Escape still works.
 		pass
 
 
