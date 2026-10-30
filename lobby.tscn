@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://k506oxe5hmxl" path="res://UI.tscn" id="3_1gg6n"]
 [ext_resource type="PackedScene" uid="uid://d2icxs24o3br4" path="res://Objects/FishTank.glb" id="3_2wvic"]
 [ext_resource type="PackedScene" uid="uid://c6ct80s0w4d1i" path="res://Objects/Lobby-col.glb" id="3_tftiq"]
+[ext_resource type="PackedScene" uid="uid://cilgnr0crmsn4" path="res://Objects/Clock.glb" id="4_tftiq"]
+[ext_resource type="Script" uid="uid://c8uh7aym8ix75" path="res://Objects/clock.gd" id="5_1gg6n"]
 
 [sub_resource type="Sky" id="Sky_ephlv"]
 
@@ -27,9 +29,6 @@ size = 10.469
 
 [node name="UI" parent="." unique_id=981345180 instance=ExtResource("3_1gg6n")]
 
-[node name="ItemPanel" parent="UI" index="0" unique_id=1163485984 node_paths=PackedStringArray("placement_manager")]
-placement_manager = NodePath("")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1286504528]
 environment = SubResource("Environment_8ldoj")
 camera_attributes = SubResource("CameraAttributesPhysical_ein8w")
@@ -47,6 +46,11 @@ transform = Transform3D(1, 0, 0, 0, 0.33264726, 0, 0, 0, 1, -6.2099924, 0.332647
 [node name="Lobby2" parent="Lobby" unique_id=1374111343 instance=ExtResource("3_tftiq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42612588, 0.013309002, -0.27876663)
 
+[node name="Lobby2" parent="." unique_id=1168028341 instance=ExtResource("4_tftiq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3583641, -9.536743e-07, 2.8312407)
+script = ExtResource("5_1gg6n")
+
 [editable path="UI"]
 [editable path="Lobby"]
 [editable path="Lobby/Lobby2"]
+[editable path="Lobby2"]
